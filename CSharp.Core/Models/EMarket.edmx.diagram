@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c6a2975f4faf468d80d02a5a72e16ad0" Name="Diagram1">
+        <EntityTypeShape EntityType="EMarketModel.AttributeMast" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.BrandMast" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.CategoryAtrributeGroup" Width="1.5" PointX="7.5" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.CategoryAttributeDetail" Width="1.5" PointX="12.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.CategoryAttributeMast" Width="1.5" PointX="7.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.CategoryMast" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.CompanyEmployeeMast" Width="1.5" PointX="8.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.CompanyMast" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.EmployeeMaster" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.ProdcutMast" Width="1.5" PointX="10.5" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.ProductDetail" Width="1.5" PointX="12.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.PurchaseDetail" Width="1.5" PointX="12.75" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.PurchaseMast" Width="1.5" PointX="5.25" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.SaleDetail" Width="1.5" PointX="15" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMarketModel.SaleMast" Width="1.5" PointX="5.25" PointY="32.125" IsExpanded="true" />
+        <AssociationConnector Association="EMarketModel.FK_AttributeMast_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CategoryAttributeMast_AttributeMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_BrandMast_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_ProdcutMast_BrandMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CategoryAtrributeGroup_CategoryMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CategoryAtrributeGroup_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CategoryAttributeMast_CategoryAtrributeGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CategoryAttributeDetail_CategoryAttributeMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CategoryAttributeDetail_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CategoryAttributeMast_CategoryMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CategoryAttributeMast_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CategoryMast_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_ProdcutMast_CategoryMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CompanyEmployeeMast_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CompanyEmployeeMast_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_CompanyMast_EmployeeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_ProdcutMast_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_PurchaseMast_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_SaleMast_CompanyMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_ProductDetail_ProdcutMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_ProductDetail_ProdcutMast1" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_PurchaseDetail_ProdcutMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_SaleDetail_ProdcutMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_PurchaseDetail_PurchaseMast" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_SaleDetail_PurchaseDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="EMarketModel.FK_SaleDetail_SaleMast" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApp.Models.DBModels.CategoryMast>
+
+@{
+    ViewBag.Title = "Category";
+}
+
+<h3>Categories</h3>
+
+<div class="well well-sm">
+    @Html.ActionLink("Add", "Add", null, null)
+</div>
+
+<table class="table">
+
+    <tr>
+        <th>Category Name</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td> @Html.DisplayFor(modelItem => item.CategoryName)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })
+
+            </td>
+
+        </tr>
+    }
+</table>
