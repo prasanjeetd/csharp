@@ -48,12 +48,6 @@ namespace CSharp.Tests
             mock.Verify(x => x.Save("billa"), Times.Exactly(1));
         }
 
-        [TestMethod]
-        public void AlwaysFail()
-        {
-            Assert.Fail("Testing TFS build Test");
-        }
-
         [TestCleanup]
         //[ClassCleanup]
         public  void Cleanup()
