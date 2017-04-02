@@ -1,4 +1,8 @@
 ﻿using CSharp.Core.Chapters;
+using CSharp.Core.Chapters.DesignsPattern.Behavioural.ChainOfResponsibility;
+using CSharp.Core.Chapters.DesignsPattern.Behavioural.ChainOfResponsibility.RealWolrd;
+using CSharp.Core.Chapters.DesignsPattern.Behavioural.Command.AbstractExample;
+using CSharp.Core.Chapters.DesignsPattern.Behavioural.Command.RealWorld;
 using CSharp.Core.Chapters.DI;
 using CSharp.Core.Chapters.EntityFramework;
 using CSharp.Core.Combinations;
@@ -40,7 +44,12 @@ namespace CSharp.Terminal
             //AdvanceProgram ap = new AdvanceProgram();
             //ap.Calculate();
 
+            //CORStartup.Call();
+            //COR_RW.Call();
 
+            //CommandStartup.Call();
+
+            CommandREStartup.Call();
 
             Console.ReadLine();
         }

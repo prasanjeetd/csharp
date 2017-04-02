@@ -67,6 +67,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chapters\DesignsPattern\Behavioural\ChainOfResponsibility\AbstractExample\Handler.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\ChainOfResponsibility\AbstractExample\Startup.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\ChainOfResponsibility\RealWolrd\Approver.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\ChainOfResponsibility\RealWolrd\AssistanManager.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\ChainOfResponsibility\RealWolrd\COR_RW.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\ChainOfResponsibility\RealWolrd\Director.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\ChainOfResponsibility\RealWolrd\Loan.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\ChainOfResponsibility\RealWolrd\Manager.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Command\AbstractExample\Reciever.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Command\AbstractExample\Startup.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Command\RealWorld\Calculator.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Command\RealWorld\CalculatorCommand.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Command\RealWorld\Command.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Command\RealWorld\CommandREStartup.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Command\RealWorld\User.cs" />
     <Compile Include="Chapters\DI\AttributeConsumer.cs" />
     <Compile Include="Chapters\DI\AttributeService.cs" />
     <Compile Include="Chapters\DI\IAttributeServices.cs" />
