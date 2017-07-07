@@ -57,6 +57,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -82,15 +83,26 @@
     <Compile Include="Chapters\DesignsPattern\Behavioural\Command\RealWorld\Command.cs" />
     <Compile Include="Chapters\DesignsPattern\Behavioural\Command\RealWorld\CommandREStartup.cs" />
     <Compile Include="Chapters\DesignsPattern\Behavioural\Command\RealWorld\User.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Interpreter\AndExpression.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Interpreter\Client.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Interpreter\Extensions.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Interpreter\IExpression.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Interpreter\InterpreterStartup.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Interpreter\OrExpression.cs" />
+    <Compile Include="Chapters\DesignsPattern\Behavioural\Interpreter\TerminalExpression.cs" />
     <Compile Include="Chapters\DI\AttributeConsumer.cs" />
     <Compile Include="Chapters\DI\AttributeService.cs" />
+    <Compile Include="Chapters\DI\DIOverride.cs" />
     <Compile Include="Chapters\DI\IAttributeServices.cs" />
     <Compile Include="Chapters\DriverExam.cs" />
     <Compile Include="Chapters\EntityFramework\CRUDOperations.cs" />
     <Compile Include="Chapters\EntityFramework\EntryPoint.cs" />
+    <Compile Include="Chapters\GC\UnmangedResource.cs" />
     <Compile Include="Chapters\Singleton\LazySingleton.cs" />
     <Compile Include="Chapters\Singleton\Singleton.cs" />
     <Compile Include="Chapters\Singleton\StaticConstructor.cs" />
+    <Compile Include="Chapters\Singleton\ThreadSafeLazySingleton.cs" />
+    <Compile Include="Chapters\Singleton\ThreadSafeSingleton.cs" />
     <Compile Include="Chapters\TestInput.cs" />
     <Compile Include="Chapters\Test\EnumX.cs" />
     <Compile Include="Chapters\Test\ITTF.cs" />
@@ -99,6 +111,20 @@
     <Compile Include="Chapters\Test\TTFSepecialized1.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Combinations\AdvanceProgram.cs" />
+    <Compile Include="Exams\AmazonInterviewQuestion.cs" />
+    <Compile Include="Exams\Anagram.cs" />
+    <Compile Include="Exams\BitProblems.cs" />
+    <Compile Include="Exams\DiagonalDifference.cs" />
+    <Compile Include="Exams\FindOneOccurance.cs" />
+    <Compile Include="Exams\FirstElementProblem.cs" />
+    <Compile Include="Exams\HackerRank.cs" />
+    <Compile Include="Exams\ServiceTitans\CacheRepository.cs" />
+    <Compile Include="Exams\ServiceTitans\ServiceBase.cs" />
+    <Compile Include="Exams\ServiceTitans\ServiceEnums.cs" />
+    <Compile Include="Exams\ServiceTitans\ServiceFactory.cs" />
+    <Compile Include="Exams\ServiceTitans\ServiceTitans.cs" />
+    <Compile Include="Exams\ServiceTitans\UserService.cs" />
+    <Compile Include="Exams\YNAB\YNAB.cs" />
     <Compile Include="Models\AttributeMast.cs">
       <DependentUpon>EMarket.tt</DependentUpon>
     </Compile>

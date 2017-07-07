@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebApp.Auth;
 
 namespace WebApp.Controllers
 {
@@ -11,6 +12,7 @@ namespace WebApp.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
+        [CustomAuthentication]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
