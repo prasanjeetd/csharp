@@ -109,7 +109,6 @@
     <Compile Include="Chapters\Test\TTFBase.cs" />
     <Compile Include="Chapters\Test\TTFSepecialized2.cs" />
     <Compile Include="Chapters\Test\TTFSepecialized1.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Combinations\AdvanceProgram.cs" />
     <Compile Include="Exams\AmazonInterviewQuestion.cs" />
     <Compile Include="Exams\Anagram.cs" />
