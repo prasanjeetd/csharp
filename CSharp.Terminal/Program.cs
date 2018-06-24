@@ -6,11 +6,17 @@ using CSharp.Core.Chapters.DesignsPattern.Behavioural.Command.RealWorld;
 using CSharp.Core.Chapters.DesignsPattern.Behavioural.Interpreter;
 using CSharp.Core.Chapters.DI;
 using CSharp.Core.Chapters.EntityFramework;
+using CSharp.Core.Chapters.GC;
+using CSharp.Core.Chapters.OOP;
+using CSharp.Core.Chapters.OOP.Inheritance;
+using CSharp.Core.Chapters.OOP.Static;
+using CSharp.Core.Chapters.OOP.Static.Constructors;
 using CSharp.Core.Combinations;
 using CSharp.Core.Exams;
 using CSharp.Core.Exams.ServiceTitans;
 using CSharp.Core.Exams.YNAB;
 using CSharp.Terminal.DI;
+using inheritance3;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +28,7 @@ namespace CSharp.Terminal
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             //EntryPoint start = new EntryPoint();
@@ -89,8 +96,19 @@ namespace CSharp.Terminal
             // userService = (UserService)cache.Get(ServiceNames.UserService);
 
             ServiceTitans titans = new ServiceTitans();
-            titans.Start();
+            //titans.Start();
 
+            OOPTests oopTest = new OOPTests();
+            //OOPTests.Test();
+            //InTester.Test();
+            //CarTesters.Test();
+            //InTester3.Test();
+
+            //StaticConTests.Test();
+            //StaticClassTests.Test();
+            //TestDisposePattern.Test();
+
+            OPPTester.Test();
             Console.ReadLine();
         }
     }
