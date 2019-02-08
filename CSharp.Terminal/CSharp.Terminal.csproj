@@ -69,20 +69,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DI\DIResolver.cs" />
+    <Compile Include="Exam.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CSharp.Core\CSharp.Core.csproj">
-      <Project>{18cbd586-d922-43f9-a8e8-65d240cf2bc9}</Project>
-      <Name>CSharp.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CSharp.Core\CSharp.Core.csproj">
+      <Project>{b26cc46a-7bae-4e90-b5d8-f42498787c0a}</Project>
+      <Name>CSharp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
