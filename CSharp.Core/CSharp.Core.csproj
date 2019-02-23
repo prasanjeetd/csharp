@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B26CC46A-7BAE-4E90-B5D8-F42498787C0A}</ProjectGuid>
+    <ProjectGuid>{9034926D-9569-4472-AE2D-12C8218A13C5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CSharp.Core</RootNamespace>
     <AssemblyName>CSharp.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,8 +30,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,6 +95,7 @@
     <Compile Include="Chapters\DI\AttributeService.cs" />
     <Compile Include="Chapters\DI\DIOverride.cs" />
     <Compile Include="Chapters\DI\IAttributeServices.cs" />
+    <Compile Include="Chapters\DI\MvcUnityDependencyResolver.cs" />
     <Compile Include="Chapters\DI\UnityContainerTest.cs" />
     <Compile Include="Chapters\EntityFramework\CRUDOperations.cs" />
     <Compile Include="Chapters\EntityFramework\EntryPoint.cs" />
@@ -92,7 +115,6 @@
     <Compile Include="Chapters\Singleton\ThreadSafeLazySingleton.cs" />
     <Compile Include="Chapters\Singleton\ThreadSafeSingleton.cs" />
     <Compile Include="Chapters\TestInput.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Combinations\AdvanceProgram.cs" />
     <Compile Include="Exams\AmazonInterviewQuestion.cs" />
     <Compile Include="Exams\Anagram.cs" />
@@ -139,25 +161,16 @@
       <DependentUpon>EMarket.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EMarket.Context.cs" />
-    <Compile Include="Models\EMarket.Context1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EMarket.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\EMarket.cs" />
     <Compile Include="Models\EMarket.Designer.cs">
       <DependentUpon>EMarket.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\EMarket1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EMarket.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\EMarket1.cs" />
     <Compile Include="Models\EMarket1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EMarket.edmx</DependentUpon>
+      <DependentUpon>EMarket1.cs</DependentUpon>
     </Compile>
+  
+  
     <Compile Include="Models\EmployeeMaster.cs">
       <DependentUpon>EMarket.tt</DependentUpon>
     </Compile>
@@ -182,27 +195,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Models\EMarket.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EMarket.Context2.cs</LastGenOutput>
+    </Content>
+    
+  </ItemGroup>
+  <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Models\EMarket.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EMarket1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    
     <None Include="Models\EMarket.edmx.diagram">
       <DependentUpon>EMarket.edmx</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\EMarket.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EMarket.Context1.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\EMarket.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EMarket1.cs</LastGenOutput>
-    </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

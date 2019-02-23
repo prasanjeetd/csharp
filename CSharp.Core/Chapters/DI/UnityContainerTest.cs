@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
+using System.Web.Http.Dependencies;
+//using Unity.AspNet.WebApi;
 
 namespace CSharp.Core.Chapters.DI
 {
@@ -12,7 +16,7 @@ namespace CSharp.Core.Chapters.DI
         {
             var container = BuildUnityContainer();
 
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            DependencyResolver.SetResolver(new MvcUnityDependencyResolver(container, DependencyResolver.Current));
 
             return container;
         }
