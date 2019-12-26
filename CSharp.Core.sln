@@ -4,10 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Terminal", "CSharp.Terminal\CSharp.Terminal.csproj", "{9F40300E-1513-4BEA-956C-DC83F12F1C2D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B26CC46A-7BAE-4E90-B5D8-F42498787C0A} = {B26CC46A-7BAE-4E90-B5D8-F42498787C0A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Tests", "CSharp.Tests\CSharp.Tests.csproj", "{00341CCD-019C-4747-83FD-1610D1CCEE39}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B26CC46A-7BAE-4E90-B5D8-F42498787C0A} = {B26CC46A-7BAE-4E90-B5D8-F42498787C0A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{8A37A5BA-C454-4E56-8350-A961C246C5C4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B26CC46A-7BAE-4E90-B5D8-F42498787C0A} = {B26CC46A-7BAE-4E90-B5D8-F42498787C0A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Core", "CSharp.Core\CSharp.Core.csproj", "{B26CC46A-7BAE-4E90-B5D8-F42498787C0A}"
 EndProject

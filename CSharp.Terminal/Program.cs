@@ -98,7 +98,7 @@ namespace CSharp.Terminal
             ServiceTitans titans = new ServiceTitans();
             //titans.Start();
 
-            OOPTests oopTest = new OOPTests();
+            //OOPTests oopTest = new OOPTests();
             //OOPTests.Test();
             //InTester.Test();
             //CarTesters.Test();
@@ -108,7 +108,14 @@ namespace CSharp.Terminal
             //StaticClassTests.Test();
             //TestDisposePattern.Test();
 
-            OPPTester.Test();
+            //new PlaneSeat().solution(2, "1A 2F 1C");
+            //new PlaneSeat().solution(1, "");
+
+            int[] A = new int[] { 5, 4, 3, 2, 6 };
+
+            new ToptalPlaneSeat().solution(A);
+
+
             Console.ReadLine();
         }
     }

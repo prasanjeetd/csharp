@@ -124,6 +124,7 @@
     <Compile Include="Exams\FindOneOccurance.cs" />
     <Compile Include="Exams\FirstElementProblem.cs" />
     <Compile Include="Exams\HackerRank.cs" />
+    <Compile Include="Exams\PlaneSeat.cs" />
     <Compile Include="Exams\ServiceTitans\CacheRepository.cs" />
     <Compile Include="Exams\ServiceTitans\ServiceBase.cs" />
     <Compile Include="Exams\ServiceTitans\ServiceEnums.cs" />
@@ -169,8 +170,6 @@
     <Compile Include="Models\EMarket1.Designer.cs">
       <DependentUpon>EMarket1.cs</DependentUpon>
     </Compile>
-  
-  
     <Compile Include="Models\EmployeeMaster.cs">
       <DependentUpon>EMarket.tt</DependentUpon>
     </Compile>
@@ -199,11 +198,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EMarket.Context2.cs</LastGenOutput>
     </Content>
-    
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    
     <None Include="Models\EMarket.edmx.diagram">
       <DependentUpon>EMarket.edmx</DependentUpon>
     </None>

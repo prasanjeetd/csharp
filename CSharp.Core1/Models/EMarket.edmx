@@ -1,0 +1,1708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EMarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AttributeMast">
+          <Key>
+            <PropertyRef Name="AttributeID" />
+          </Key>
+          <Property Name="AttributeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttributeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="IsGlobal" Type="bit" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="BrandMast">
+          <Key>
+            <PropertyRef Name="BrandID" />
+          </Key>
+          <Property Name="BrandID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="IsGlobal" Type="bit" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="CategoryAtrributeGroup">
+          <Key>
+            <PropertyRef Name="CatAttGroupID" />
+          </Key>
+          <Property Name="CatAttGroupID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CatAttGroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CategoryID" Type="bigint" />
+          <Property Name="IsGLobal" Type="bit" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="CategoryAttributeDetail">
+          <Key>
+            <PropertyRef Name="CatAttributeDetailID" />
+          </Key>
+          <Property Name="CatAttributeDetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryAttributeID" Type="bigint" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="IsGlobal" Type="bit" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="bigint" />
+          <Property Name="UpdatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="CategoryAttributeMast">
+          <Key>
+            <PropertyRef Name="CategoryAttributeID" />
+          </Key>
+          <Property Name="CategoryAttributeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryID" Type="bigint" />
+          <Property Name="AttributeID" Type="bigint" />
+          <Property Name="CatAttGroupID" Type="bigint" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="IsGlobal" Type="bit" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="bigint" />
+          <Property Name="UpdatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="CategoryMast">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CatRefID" Type="bigint" />
+          <Property Name="PersonGroupID" Type="bigint" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="IsGlobal" Type="bit" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="CompanyEmployeeMast">
+          <Key>
+            <PropertyRef Name="CompanyEmployeeID" />
+          </Key>
+          <Property Name="CompanyEmployeeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="bigint" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="CompanyMast">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Slogan" Type="nvarchar" MaxLength="150" />
+          <Property Name="RegisterationDate" Type="smalldatetime" />
+          <Property Name="FromDate" Type="smalldatetime" />
+          <Property Name="ToDate" Type="smalldatetime" />
+          <Property Name="ACNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Logo" Type="image" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="20" />
+          <Property Name="RefCompanyID" Type="bigint" />
+          <Property Name="IsCurrent" Type="bit" />
+          <Property Name="IsClosed" Type="bit" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="bigint" />
+          <Property Name="UpdatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="EmployeeMaster">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="uniqueidentifier" />
+          <Property Name="EmployeeFName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeMName" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmployeeLName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="smalldatetime" />
+          <Property Name="Mobile1" Type="nvarchar" MaxLength="20" />
+          <Property Name="Mobile2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="350" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsAdmin" Type="bit" />
+          <Property Name="IsSupplier" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UserRole" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ProdcutMast">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandID" Type="bigint" />
+          <Property Name="CategoryID" Type="bigint" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MRP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="IsGlobal" Type="bit" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="bigint" />
+          <Property Name="UpdatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="ProductDetail">
+          <Key>
+            <PropertyRef Name="ProductDetailID" />
+          </Key>
+          <Property Name="ProductDetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="bigint" />
+          <Property Name="CategoryAttributeID" Type="bigint" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PurchaseDetail">
+          <Key>
+            <PropertyRef Name="PurchaseDetailID" />
+          </Key>
+          <Property Name="PurchaseDetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseID" Type="bigint" />
+          <Property Name="ProductID" Type="bigint" />
+          <Property Name="Rate" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Qty" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Total" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountPer" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountAmt" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NetTotal" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="AVat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="FinalTotal" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PurchaseMast">
+          <Key>
+            <PropertyRef Name="PurchaseID" />
+          </Key>
+          <Property Name="PurchaseID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseNo" Type="bigint" />
+          <Property Name="PurchaseDate" Type="smalldatetime" />
+          <Property Name="BillNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillDate" Type="smalldatetime" />
+          <Property Name="Total" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountPer" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountAmt" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NetTotal" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="AVat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="FinalTotal" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="IsGlobal" Type="bit" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="bigint" />
+          <Property Name="UpdatedOn" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="SaleDetail">
+          <Key>
+            <PropertyRef Name="SaleDetailID" />
+          </Key>
+          <Property Name="SaleDetailID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SaleID" Type="bigint" />
+          <Property Name="ProductID" Type="bigint" />
+          <Property Name="PurchaseDetailID" Type="bigint" />
+          <Property Name="Rate" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Qty" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Total" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountPer" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountAmt" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NetTotal" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="AVat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="FinalTotal" Type="numeric" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SaleMast">
+          <Key>
+            <PropertyRef Name="SaleID" />
+          </Key>
+          <Property Name="SaleID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SaleNo" Type="bigint" />
+          <Property Name="SaleDate" Type="smalldatetime" />
+          <Property Name="BillNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="BillDate" Type="smalldatetime" />
+          <Property Name="Total" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountPer" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountAmt" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NetTotal" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="AVat" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="FinalTotal" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CompanyID" Type="bigint" />
+          <Property Name="IsGlobal" Type="bit" />
+          <Property Name="CreatedBy" Type="bigint" />
+          <Property Name="CreatedOn" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="bigint" />
+          <Property Name="UpdatedOn" Type="smalldatetime" />
+        </EntityType>
+        <Association Name="FK_AttributeMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="AttributeMast" Type="Self.AttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="AttributeMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrandMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="BrandMast" Type="Self.BrandMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="BrandMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAtrributeGroup_CategoryMast">
+          <End Role="CategoryMast" Type="Self.CategoryMast" Multiplicity="0..1" />
+          <End Role="CategoryAtrributeGroup" Type="Self.CategoryAtrributeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryMast">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="CategoryAtrributeGroup">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAtrributeGroup_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CategoryAtrributeGroup" Type="Self.CategoryAtrributeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CategoryAtrributeGroup">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeDetail_CategoryAttributeMast">
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeDetail" Type="Self.CategoryAttributeDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryAttributeMast">
+              <PropertyRef Name="CategoryAttributeID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeDetail">
+              <PropertyRef Name="CategoryAttributeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeDetail_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeDetail" Type="Self.CategoryAttributeDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeDetail">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeMast_AttributeMast">
+          <End Role="AttributeMast" Type="Self.AttributeMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttributeMast">
+              <PropertyRef Name="AttributeID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeMast">
+              <PropertyRef Name="AttributeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeMast_CategoryAtrributeGroup">
+          <End Role="CategoryAtrributeGroup" Type="Self.CategoryAtrributeGroup" Multiplicity="0..1" />
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryAtrributeGroup">
+              <PropertyRef Name="CatAttGroupID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeMast">
+              <PropertyRef Name="CatAttGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeMast_CategoryMast">
+          <End Role="CategoryMast" Type="Self.CategoryMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryMast">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeMast">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CategoryMast" Type="Self.CategoryMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CategoryMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyEmployeeMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CompanyEmployeeMast" Type="Self.CompanyEmployeeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CompanyEmployeeMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyEmployeeMast_EmployeeMaster">
+          <End Role="EmployeeMaster" Type="Self.EmployeeMaster" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CompanyEmployeeMast" Type="Self.CompanyEmployeeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="CompanyEmployeeMast">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyMast_EmployeeMaster">
+          <End Role="EmployeeMaster" Type="Self.EmployeeMaster" Multiplicity="0..1" />
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="CompanyMast">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProdcutMast_BrandMast">
+          <End Role="BrandMast" Type="Self.BrandMast" Multiplicity="0..1" />
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandMast">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="ProdcutMast">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProdcutMast_CategoryMast">
+          <End Role="CategoryMast" Type="Self.CategoryMast" Multiplicity="0..1" />
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryMast">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="ProdcutMast">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProdcutMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="ProdcutMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDetail_ProdcutMast">
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdcutMast">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDetail_ProdcutMast1">
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="0..1" />
+          <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdcutMast">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetail_ProdcutMast">
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="0..1" />
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdcutMast">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetail_PurchaseMast">
+          <End Role="PurchaseMast" Type="Self.PurchaseMast" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseMast">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="PurchaseMast" Type="Self.PurchaseMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="PurchaseMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleDetail_ProdcutMast">
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="0..1" />
+          <End Role="SaleDetail" Type="Self.SaleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdcutMast">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="SaleDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleDetail_PurchaseDetail">
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="0..1" />
+          <End Role="SaleDetail" Type="Self.SaleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseDetail">
+              <PropertyRef Name="PurchaseDetailID" />
+            </Principal>
+            <Dependent Role="SaleDetail">
+              <PropertyRef Name="PurchaseDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleDetail_SaleMast">
+          <End Role="SaleMast" Type="Self.SaleMast" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SaleDetail" Type="Self.SaleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaleMast">
+              <PropertyRef Name="SaleID" />
+            </Principal>
+            <Dependent Role="SaleDetail">
+              <PropertyRef Name="SaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="SaleMast" Type="Self.SaleMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="SaleMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EMarketModelStoreContainer">
+          <EntitySet Name="AttributeMast" EntityType="Self.AttributeMast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrandMast" EntityType="Self.BrandMast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryAtrributeGroup" EntityType="Self.CategoryAtrributeGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryAttributeDetail" EntityType="Self.CategoryAttributeDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryAttributeMast" EntityType="Self.CategoryAttributeMast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryMast" EntityType="Self.CategoryMast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyEmployeeMast" EntityType="Self.CompanyEmployeeMast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyMast" EntityType="Self.CompanyMast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeMaster" EntityType="Self.EmployeeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProdcutMast" EntityType="Self.ProdcutMast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDetail" EntityType="Self.ProductDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseDetail" EntityType="Self.PurchaseDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PurchaseMast" EntityType="Self.PurchaseMast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaleDetail" EntityType="Self.SaleDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaleMast" EntityType="Self.SaleMast" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AttributeMast_CompanyMast" Association="Self.FK_AttributeMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="AttributeMast" EntitySet="AttributeMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrandMast_CompanyMast" Association="Self.FK_BrandMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="BrandMast" EntitySet="BrandMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAtrributeGroup_CategoryMast" Association="Self.FK_CategoryAtrributeGroup_CategoryMast">
+            <End Role="CategoryMast" EntitySet="CategoryMast" />
+            <End Role="CategoryAtrributeGroup" EntitySet="CategoryAtrributeGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAtrributeGroup_CompanyMast" Association="Self.FK_CategoryAtrributeGroup_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="CategoryAtrributeGroup" EntitySet="CategoryAtrributeGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeDetail_CategoryAttributeMast" Association="Self.FK_CategoryAttributeDetail_CategoryAttributeMast">
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMast" />
+            <End Role="CategoryAttributeDetail" EntitySet="CategoryAttributeDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeDetail_CompanyMast" Association="Self.FK_CategoryAttributeDetail_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="CategoryAttributeDetail" EntitySet="CategoryAttributeDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeMast_AttributeMast" Association="Self.FK_CategoryAttributeMast_AttributeMast">
+            <End Role="AttributeMast" EntitySet="AttributeMast" />
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeMast_CategoryAtrributeGroup" Association="Self.FK_CategoryAttributeMast_CategoryAtrributeGroup">
+            <End Role="CategoryAtrributeGroup" EntitySet="CategoryAtrributeGroup" />
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeMast_CategoryMast" Association="Self.FK_CategoryAttributeMast_CategoryMast">
+            <End Role="CategoryMast" EntitySet="CategoryMast" />
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeMast_CompanyMast" Association="Self.FK_CategoryAttributeMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryMast_CompanyMast" Association="Self.FK_CategoryMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="CategoryMast" EntitySet="CategoryMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyEmployeeMast_CompanyMast" Association="Self.FK_CompanyEmployeeMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="CompanyEmployeeMast" EntitySet="CompanyEmployeeMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyEmployeeMast_EmployeeMaster" Association="Self.FK_CompanyEmployeeMast_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMaster" />
+            <End Role="CompanyEmployeeMast" EntitySet="CompanyEmployeeMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyMast_EmployeeMaster" Association="Self.FK_CompanyMast_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMaster" />
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProdcutMast_BrandMast" Association="Self.FK_ProdcutMast_BrandMast">
+            <End Role="BrandMast" EntitySet="BrandMast" />
+            <End Role="ProdcutMast" EntitySet="ProdcutMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProdcutMast_CategoryMast" Association="Self.FK_ProdcutMast_CategoryMast">
+            <End Role="CategoryMast" EntitySet="CategoryMast" />
+            <End Role="ProdcutMast" EntitySet="ProdcutMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProdcutMast_CompanyMast" Association="Self.FK_ProdcutMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="ProdcutMast" EntitySet="ProdcutMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDetail_ProdcutMast" Association="Self.FK_ProductDetail_ProdcutMast">
+            <End Role="ProdcutMast" EntitySet="ProdcutMast" />
+            <End Role="ProductDetail" EntitySet="ProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDetail_ProdcutMast1" Association="Self.FK_ProductDetail_ProdcutMast1">
+            <End Role="ProdcutMast" EntitySet="ProdcutMast" />
+            <End Role="ProductDetail" EntitySet="ProductDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetail_ProdcutMast" Association="Self.FK_PurchaseDetail_ProdcutMast">
+            <End Role="ProdcutMast" EntitySet="ProdcutMast" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetail_PurchaseMast" Association="Self.FK_PurchaseDetail_PurchaseMast">
+            <End Role="PurchaseMast" EntitySet="PurchaseMast" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseMast_CompanyMast" Association="Self.FK_PurchaseMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="PurchaseMast" EntitySet="PurchaseMast" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleDetail_ProdcutMast" Association="Self.FK_SaleDetail_ProdcutMast">
+            <End Role="ProdcutMast" EntitySet="ProdcutMast" />
+            <End Role="SaleDetail" EntitySet="SaleDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleDetail_PurchaseDetail" Association="Self.FK_SaleDetail_PurchaseDetail">
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetail" />
+            <End Role="SaleDetail" EntitySet="SaleDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleDetail_SaleMast" Association="Self.FK_SaleDetail_SaleMast">
+            <End Role="SaleMast" EntitySet="SaleMast" />
+            <End Role="SaleDetail" EntitySet="SaleDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleMast_CompanyMast" Association="Self.FK_SaleMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMast" />
+            <End Role="SaleMast" EntitySet="SaleMast" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EMarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AttributeMast">
+          <Key>
+            <PropertyRef Name="AttributeID" />
+          </Key>
+          <Property Name="AttributeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttributeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="IsGlobal" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_AttributeMast_CompanyMast" FromRole="AttributeMast" ToRole="CompanyMast" />
+          <NavigationProperty Name="CategoryAttributeMasts" Relationship="Self.FK_CategoryAttributeMast_AttributeMast" FromRole="AttributeMast" ToRole="CategoryAttributeMast" />
+        </EntityType>
+        <EntityType Name="BrandMast">
+          <Key>
+            <PropertyRef Name="BrandID" />
+          </Key>
+          <Property Name="BrandID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="IsGlobal" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_BrandMast_CompanyMast" FromRole="BrandMast" ToRole="CompanyMast" />
+          <NavigationProperty Name="ProdcutMasts" Relationship="Self.FK_ProdcutMast_BrandMast" FromRole="BrandMast" ToRole="ProdcutMast" />
+        </EntityType>
+        <EntityType Name="CategoryAtrributeGroup">
+          <Key>
+            <PropertyRef Name="CatAttGroupID" />
+          </Key>
+          <Property Name="CatAttGroupID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CatAttGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int64" />
+          <Property Name="IsGLobal" Type="Boolean" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CategoryMast" Relationship="Self.FK_CategoryAtrributeGroup_CategoryMast" FromRole="CategoryAtrributeGroup" ToRole="CategoryMast" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_CategoryAtrributeGroup_CompanyMast" FromRole="CategoryAtrributeGroup" ToRole="CompanyMast" />
+          <NavigationProperty Name="CategoryAttributeMasts" Relationship="Self.FK_CategoryAttributeMast_CategoryAtrributeGroup" FromRole="CategoryAtrributeGroup" ToRole="CategoryAttributeMast" />
+        </EntityType>
+        <EntityType Name="CategoryAttributeDetail">
+          <Key>
+            <PropertyRef Name="CatAttributeDetailID" />
+          </Key>
+          <Property Name="CatAttributeDetailID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryAttributeID" Type="Int64" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="IsGlobal" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int64" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CategoryAttributeMast" Relationship="Self.FK_CategoryAttributeDetail_CategoryAttributeMast" FromRole="CategoryAttributeDetail" ToRole="CategoryAttributeMast" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_CategoryAttributeDetail_CompanyMast" FromRole="CategoryAttributeDetail" ToRole="CompanyMast" />
+        </EntityType>
+        <EntityType Name="CategoryAttributeMast">
+          <Key>
+            <PropertyRef Name="CategoryAttributeID" />
+          </Key>
+          <Property Name="CategoryAttributeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int64" />
+          <Property Name="AttributeID" Type="Int64" />
+          <Property Name="CatAttGroupID" Type="Int64" />
+          <Property Name="UnitName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="IsGlobal" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int64" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AttributeMast" Relationship="Self.FK_CategoryAttributeMast_AttributeMast" FromRole="CategoryAttributeMast" ToRole="AttributeMast" />
+          <NavigationProperty Name="CategoryAtrributeGroup" Relationship="Self.FK_CategoryAttributeMast_CategoryAtrributeGroup" FromRole="CategoryAttributeMast" ToRole="CategoryAtrributeGroup" />
+          <NavigationProperty Name="CategoryAttributeDetails" Relationship="Self.FK_CategoryAttributeDetail_CategoryAttributeMast" FromRole="CategoryAttributeMast" ToRole="CategoryAttributeDetail" />
+          <NavigationProperty Name="CategoryMast" Relationship="Self.FK_CategoryAttributeMast_CategoryMast" FromRole="CategoryAttributeMast" ToRole="CategoryMast" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_CategoryAttributeMast_CompanyMast" FromRole="CategoryAttributeMast" ToRole="CompanyMast" />
+        </EntityType>
+        <EntityType Name="CategoryMast">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CatRefID" Type="Int64" />
+          <Property Name="PersonGroupID" Type="Int64" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="IsGlobal" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CategoryAtrributeGroups" Relationship="Self.FK_CategoryAtrributeGroup_CategoryMast" FromRole="CategoryMast" ToRole="CategoryAtrributeGroup" />
+          <NavigationProperty Name="CategoryAttributeMasts" Relationship="Self.FK_CategoryAttributeMast_CategoryMast" FromRole="CategoryMast" ToRole="CategoryAttributeMast" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_CategoryMast_CompanyMast" FromRole="CategoryMast" ToRole="CompanyMast" />
+          <NavigationProperty Name="ProdcutMasts" Relationship="Self.FK_ProdcutMast_CategoryMast" FromRole="CategoryMast" ToRole="ProdcutMast" />
+        </EntityType>
+        <EntityType Name="CompanyEmployeeMast">
+          <Key>
+            <PropertyRef Name="CompanyEmployeeID" />
+          </Key>
+          <Property Name="CompanyEmployeeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int64" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_CompanyEmployeeMast_CompanyMast" FromRole="CompanyEmployeeMast" ToRole="CompanyMast" />
+          <NavigationProperty Name="EmployeeMaster" Relationship="Self.FK_CompanyEmployeeMast_EmployeeMaster" FromRole="CompanyEmployeeMast" ToRole="EmployeeMaster" />
+        </EntityType>
+        <EntityType Name="CompanyMast">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Slogan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterationDate" Type="DateTime" Precision="0" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="ACNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Extension" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RefCompanyID" Type="Int64" />
+          <Property Name="IsCurrent" Type="Boolean" />
+          <Property Name="IsClosed" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int64" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AttributeMasts" Relationship="Self.FK_AttributeMast_CompanyMast" FromRole="CompanyMast" ToRole="AttributeMast" />
+          <NavigationProperty Name="BrandMasts" Relationship="Self.FK_BrandMast_CompanyMast" FromRole="CompanyMast" ToRole="BrandMast" />
+          <NavigationProperty Name="CategoryAtrributeGroups" Relationship="Self.FK_CategoryAtrributeGroup_CompanyMast" FromRole="CompanyMast" ToRole="CategoryAtrributeGroup" />
+          <NavigationProperty Name="CategoryAttributeDetails" Relationship="Self.FK_CategoryAttributeDetail_CompanyMast" FromRole="CompanyMast" ToRole="CategoryAttributeDetail" />
+          <NavigationProperty Name="CategoryAttributeMasts" Relationship="Self.FK_CategoryAttributeMast_CompanyMast" FromRole="CompanyMast" ToRole="CategoryAttributeMast" />
+          <NavigationProperty Name="CategoryMasts" Relationship="Self.FK_CategoryMast_CompanyMast" FromRole="CompanyMast" ToRole="CategoryMast" />
+          <NavigationProperty Name="CompanyEmployeeMasts" Relationship="Self.FK_CompanyEmployeeMast_CompanyMast" FromRole="CompanyMast" ToRole="CompanyEmployeeMast" />
+          <NavigationProperty Name="EmployeeMaster" Relationship="Self.FK_CompanyMast_EmployeeMaster" FromRole="CompanyMast" ToRole="EmployeeMaster" />
+          <NavigationProperty Name="ProdcutMasts" Relationship="Self.FK_ProdcutMast_CompanyMast" FromRole="CompanyMast" ToRole="ProdcutMast" />
+          <NavigationProperty Name="PurchaseMasts" Relationship="Self.FK_PurchaseMast_CompanyMast" FromRole="CompanyMast" ToRole="PurchaseMast" />
+          <NavigationProperty Name="SaleMasts" Relationship="Self.FK_SaleMast_CompanyMast" FromRole="CompanyMast" ToRole="SaleMast" />
+        </EntityType>
+        <EntityType Name="EmployeeMaster">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Guid" />
+          <Property Name="EmployeeFName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeMName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeLName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Mobile1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Extension" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsAdmin" Type="Boolean" />
+          <Property Name="IsSupplier" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserRole" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CompanyEmployeeMasts" Relationship="Self.FK_CompanyEmployeeMast_EmployeeMaster" FromRole="EmployeeMaster" ToRole="CompanyEmployeeMast" />
+          <NavigationProperty Name="CompanyMasts" Relationship="Self.FK_CompanyMast_EmployeeMaster" FromRole="EmployeeMaster" ToRole="CompanyMast" />
+        </EntityType>
+        <EntityType Name="ProdcutMast">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandID" Type="Int64" />
+          <Property Name="CategoryID" Type="Int64" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MRP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="IsGlobal" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int64" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="BrandMast" Relationship="Self.FK_ProdcutMast_BrandMast" FromRole="ProdcutMast" ToRole="BrandMast" />
+          <NavigationProperty Name="CategoryMast" Relationship="Self.FK_ProdcutMast_CategoryMast" FromRole="ProdcutMast" ToRole="CategoryMast" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_ProdcutMast_CompanyMast" FromRole="ProdcutMast" ToRole="CompanyMast" />
+          <NavigationProperty Name="ProductDetails" Relationship="Self.FK_ProductDetail_ProdcutMast" FromRole="ProdcutMast" ToRole="ProductDetail" />
+          <NavigationProperty Name="ProductDetails1" Relationship="Self.FK_ProductDetail_ProdcutMast1" FromRole="ProdcutMast" ToRole="ProductDetail" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="Self.FK_PurchaseDetail_ProdcutMast" FromRole="ProdcutMast" ToRole="PurchaseDetail" />
+          <NavigationProperty Name="SaleDetails" Relationship="Self.FK_SaleDetail_ProdcutMast" FromRole="ProdcutMast" ToRole="SaleDetail" />
+        </EntityType>
+        <EntityType Name="ProductDetail">
+          <Key>
+            <PropertyRef Name="ProductDetailID" />
+          </Key>
+          <Property Name="ProductDetailID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int64" />
+          <Property Name="CategoryAttributeID" Type="Int64" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProdcutMast" Relationship="Self.FK_ProductDetail_ProdcutMast" FromRole="ProductDetail" ToRole="ProdcutMast" />
+          <NavigationProperty Name="ProdcutMast1" Relationship="Self.FK_ProductDetail_ProdcutMast1" FromRole="ProductDetail" ToRole="ProdcutMast" />
+        </EntityType>
+        <EntityType Name="PurchaseDetail">
+          <Key>
+            <PropertyRef Name="PurchaseDetailID" />
+          </Key>
+          <Property Name="PurchaseDetailID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseID" Type="Int64" />
+          <Property Name="ProductID" Type="Int64" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Qty" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountPer" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountAmt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NetTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FinalTotal" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="ProdcutMast" Relationship="Self.FK_PurchaseDetail_ProdcutMast" FromRole="PurchaseDetail" ToRole="ProdcutMast" />
+          <NavigationProperty Name="PurchaseMast" Relationship="Self.FK_PurchaseDetail_PurchaseMast" FromRole="PurchaseDetail" ToRole="PurchaseMast" />
+          <NavigationProperty Name="SaleDetails" Relationship="Self.FK_SaleDetail_PurchaseDetail" FromRole="PurchaseDetail" ToRole="SaleDetail" />
+        </EntityType>
+        <EntityType Name="PurchaseMast">
+          <Key>
+            <PropertyRef Name="PurchaseID" />
+          </Key>
+          <Property Name="PurchaseID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseNo" Type="Int64" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="0" />
+          <Property Name="BillNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillDate" Type="DateTime" Precision="0" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountPer" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountAmt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NetTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FinalTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="IsGlobal" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int64" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_PurchaseMast_CompanyMast" FromRole="PurchaseMast" ToRole="CompanyMast" />
+          <NavigationProperty Name="PurchaseDetails" Relationship="Self.FK_PurchaseDetail_PurchaseMast" FromRole="PurchaseMast" ToRole="PurchaseDetail" />
+        </EntityType>
+        <EntityType Name="SaleDetail">
+          <Key>
+            <PropertyRef Name="SaleDetailID" />
+          </Key>
+          <Property Name="SaleDetailID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaleID" Type="Int64" />
+          <Property Name="ProductID" Type="Int64" />
+          <Property Name="PurchaseDetailID" Type="Int64" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MRP" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Qty" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountPer" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountAmt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NetTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FinalTotal" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="ProdcutMast" Relationship="Self.FK_SaleDetail_ProdcutMast" FromRole="SaleDetail" ToRole="ProdcutMast" />
+          <NavigationProperty Name="PurchaseDetail" Relationship="Self.FK_SaleDetail_PurchaseDetail" FromRole="SaleDetail" ToRole="PurchaseDetail" />
+          <NavigationProperty Name="SaleMast" Relationship="Self.FK_SaleDetail_SaleMast" FromRole="SaleDetail" ToRole="SaleMast" />
+        </EntityType>
+        <EntityType Name="SaleMast">
+          <Key>
+            <PropertyRef Name="SaleID" />
+          </Key>
+          <Property Name="SaleID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaleNo" Type="Int64" />
+          <Property Name="SaleDate" Type="DateTime" Precision="0" />
+          <Property Name="BillNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BillDate" Type="DateTime" Precision="0" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountPer" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountAmt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NetTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FinalTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CompanyID" Type="Int64" />
+          <Property Name="IsGlobal" Type="Boolean" />
+          <Property Name="CreatedBy" Type="Int64" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="Int64" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CompanyMast" Relationship="Self.FK_SaleMast_CompanyMast" FromRole="SaleMast" ToRole="CompanyMast" />
+          <NavigationProperty Name="SaleDetails" Relationship="Self.FK_SaleDetail_SaleMast" FromRole="SaleMast" ToRole="SaleDetail" />
+        </EntityType>
+        <Association Name="FK_AttributeMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="AttributeMast" Type="Self.AttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="AttributeMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeMast_AttributeMast">
+          <End Role="AttributeMast" Type="Self.AttributeMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AttributeMast">
+              <PropertyRef Name="AttributeID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeMast">
+              <PropertyRef Name="AttributeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrandMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="BrandMast" Type="Self.BrandMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="BrandMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProdcutMast_BrandMast">
+          <End Role="BrandMast" Type="Self.BrandMast" Multiplicity="0..1" />
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandMast">
+              <PropertyRef Name="BrandID" />
+            </Principal>
+            <Dependent Role="ProdcutMast">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAtrributeGroup_CategoryMast">
+          <End Role="CategoryMast" Type="Self.CategoryMast" Multiplicity="0..1" />
+          <End Role="CategoryAtrributeGroup" Type="Self.CategoryAtrributeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryMast">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="CategoryAtrributeGroup">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAtrributeGroup_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CategoryAtrributeGroup" Type="Self.CategoryAtrributeGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CategoryAtrributeGroup">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeMast_CategoryAtrributeGroup">
+          <End Role="CategoryAtrributeGroup" Type="Self.CategoryAtrributeGroup" Multiplicity="0..1" />
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryAtrributeGroup">
+              <PropertyRef Name="CatAttGroupID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeMast">
+              <PropertyRef Name="CatAttGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeDetail_CategoryAttributeMast">
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeDetail" Type="Self.CategoryAttributeDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryAttributeMast">
+              <PropertyRef Name="CategoryAttributeID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeDetail">
+              <PropertyRef Name="CategoryAttributeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeDetail_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeDetail" Type="Self.CategoryAttributeDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeDetail">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeMast_CategoryMast">
+          <End Role="CategoryMast" Type="Self.CategoryMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryMast">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeMast">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryAttributeMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CategoryAttributeMast" Type="Self.CategoryAttributeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CategoryAttributeMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CategoryMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CategoryMast" Type="Self.CategoryMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CategoryMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProdcutMast_CategoryMast">
+          <End Role="CategoryMast" Type="Self.CategoryMast" Multiplicity="0..1" />
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryMast">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="ProdcutMast">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyEmployeeMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="CompanyEmployeeMast" Type="Self.CompanyEmployeeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="CompanyEmployeeMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyEmployeeMast_EmployeeMaster">
+          <End Role="EmployeeMaster" Type="Self.EmployeeMaster" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CompanyEmployeeMast" Type="Self.CompanyEmployeeMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="CompanyEmployeeMast">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompanyMast_EmployeeMaster">
+          <End Role="EmployeeMaster" Type="Self.EmployeeMaster" Multiplicity="0..1" />
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeMaster">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="CompanyMast">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProdcutMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="ProdcutMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="PurchaseMast" Type="Self.PurchaseMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="PurchaseMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleMast_CompanyMast">
+          <End Role="CompanyMast" Type="Self.CompanyMast" Multiplicity="0..1" />
+          <End Role="SaleMast" Type="Self.SaleMast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyMast">
+              <PropertyRef Name="CompanyID" />
+            </Principal>
+            <Dependent Role="SaleMast">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDetail_ProdcutMast">
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdcutMast">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDetail_ProdcutMast1">
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="0..1" />
+          <End Role="ProductDetail" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdcutMast">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetail_ProdcutMast">
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="0..1" />
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdcutMast">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleDetail_ProdcutMast">
+          <End Role="ProdcutMast" Type="Self.ProdcutMast" Multiplicity="0..1" />
+          <End Role="SaleDetail" Type="Self.SaleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProdcutMast">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="SaleDetail">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseDetail_PurchaseMast">
+          <End Role="PurchaseMast" Type="Self.PurchaseMast" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseMast">
+              <PropertyRef Name="PurchaseID" />
+            </Principal>
+            <Dependent Role="PurchaseDetail">
+              <PropertyRef Name="PurchaseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleDetail_PurchaseDetail">
+          <End Role="PurchaseDetail" Type="Self.PurchaseDetail" Multiplicity="0..1" />
+          <End Role="SaleDetail" Type="Self.SaleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseDetail">
+              <PropertyRef Name="PurchaseDetailID" />
+            </Principal>
+            <Dependent Role="SaleDetail">
+              <PropertyRef Name="PurchaseDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SaleDetail_SaleMast">
+          <End Role="SaleMast" Type="Self.SaleMast" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SaleDetail" Type="Self.SaleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SaleMast">
+              <PropertyRef Name="SaleID" />
+            </Principal>
+            <Dependent Role="SaleDetail">
+              <PropertyRef Name="SaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EMarketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AttributeMasts" EntityType="Self.AttributeMast" />
+          <EntitySet Name="BrandMasts" EntityType="Self.BrandMast" />
+          <EntitySet Name="CategoryAtrributeGroups" EntityType="Self.CategoryAtrributeGroup" />
+          <EntitySet Name="CategoryAttributeDetails" EntityType="Self.CategoryAttributeDetail" />
+          <EntitySet Name="CategoryAttributeMasts" EntityType="Self.CategoryAttributeMast" />
+          <EntitySet Name="CategoryMasts" EntityType="Self.CategoryMast" />
+          <EntitySet Name="CompanyEmployeeMasts" EntityType="Self.CompanyEmployeeMast" />
+          <EntitySet Name="CompanyMasts" EntityType="Self.CompanyMast" />
+          <EntitySet Name="EmployeeMasters" EntityType="Self.EmployeeMaster" />
+          <EntitySet Name="ProdcutMasts" EntityType="Self.ProdcutMast" />
+          <EntitySet Name="ProductDetails" EntityType="Self.ProductDetail" />
+          <EntitySet Name="PurchaseDetails" EntityType="Self.PurchaseDetail" />
+          <EntitySet Name="PurchaseMasts" EntityType="Self.PurchaseMast" />
+          <EntitySet Name="SaleDetails" EntityType="Self.SaleDetail" />
+          <EntitySet Name="SaleMasts" EntityType="Self.SaleMast" />
+          <AssociationSet Name="FK_AttributeMast_CompanyMast" Association="Self.FK_AttributeMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="AttributeMast" EntitySet="AttributeMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeMast_AttributeMast" Association="Self.FK_CategoryAttributeMast_AttributeMast">
+            <End Role="AttributeMast" EntitySet="AttributeMasts" />
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrandMast_CompanyMast" Association="Self.FK_BrandMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="BrandMast" EntitySet="BrandMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProdcutMast_BrandMast" Association="Self.FK_ProdcutMast_BrandMast">
+            <End Role="BrandMast" EntitySet="BrandMasts" />
+            <End Role="ProdcutMast" EntitySet="ProdcutMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAtrributeGroup_CategoryMast" Association="Self.FK_CategoryAtrributeGroup_CategoryMast">
+            <End Role="CategoryMast" EntitySet="CategoryMasts" />
+            <End Role="CategoryAtrributeGroup" EntitySet="CategoryAtrributeGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAtrributeGroup_CompanyMast" Association="Self.FK_CategoryAtrributeGroup_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="CategoryAtrributeGroup" EntitySet="CategoryAtrributeGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeMast_CategoryAtrributeGroup" Association="Self.FK_CategoryAttributeMast_CategoryAtrributeGroup">
+            <End Role="CategoryAtrributeGroup" EntitySet="CategoryAtrributeGroups" />
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeDetail_CategoryAttributeMast" Association="Self.FK_CategoryAttributeDetail_CategoryAttributeMast">
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMasts" />
+            <End Role="CategoryAttributeDetail" EntitySet="CategoryAttributeDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeDetail_CompanyMast" Association="Self.FK_CategoryAttributeDetail_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="CategoryAttributeDetail" EntitySet="CategoryAttributeDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeMast_CategoryMast" Association="Self.FK_CategoryAttributeMast_CategoryMast">
+            <End Role="CategoryMast" EntitySet="CategoryMasts" />
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryAttributeMast_CompanyMast" Association="Self.FK_CategoryAttributeMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="CategoryAttributeMast" EntitySet="CategoryAttributeMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CategoryMast_CompanyMast" Association="Self.FK_CategoryMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="CategoryMast" EntitySet="CategoryMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProdcutMast_CategoryMast" Association="Self.FK_ProdcutMast_CategoryMast">
+            <End Role="CategoryMast" EntitySet="CategoryMasts" />
+            <End Role="ProdcutMast" EntitySet="ProdcutMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyEmployeeMast_CompanyMast" Association="Self.FK_CompanyEmployeeMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="CompanyEmployeeMast" EntitySet="CompanyEmployeeMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyEmployeeMast_EmployeeMaster" Association="Self.FK_CompanyEmployeeMast_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="CompanyEmployeeMast" EntitySet="CompanyEmployeeMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompanyMast_EmployeeMaster" Association="Self.FK_CompanyMast_EmployeeMaster">
+            <End Role="EmployeeMaster" EntitySet="EmployeeMasters" />
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProdcutMast_CompanyMast" Association="Self.FK_ProdcutMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="ProdcutMast" EntitySet="ProdcutMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseMast_CompanyMast" Association="Self.FK_PurchaseMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="PurchaseMast" EntitySet="PurchaseMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleMast_CompanyMast" Association="Self.FK_SaleMast_CompanyMast">
+            <End Role="CompanyMast" EntitySet="CompanyMasts" />
+            <End Role="SaleMast" EntitySet="SaleMasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDetail_ProdcutMast" Association="Self.FK_ProductDetail_ProdcutMast">
+            <End Role="ProdcutMast" EntitySet="ProdcutMasts" />
+            <End Role="ProductDetail" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDetail_ProdcutMast1" Association="Self.FK_ProductDetail_ProdcutMast1">
+            <End Role="ProdcutMast" EntitySet="ProdcutMasts" />
+            <End Role="ProductDetail" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetail_ProdcutMast" Association="Self.FK_PurchaseDetail_ProdcutMast">
+            <End Role="ProdcutMast" EntitySet="ProdcutMasts" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleDetail_ProdcutMast" Association="Self.FK_SaleDetail_ProdcutMast">
+            <End Role="ProdcutMast" EntitySet="ProdcutMasts" />
+            <End Role="SaleDetail" EntitySet="SaleDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseDetail_PurchaseMast" Association="Self.FK_PurchaseDetail_PurchaseMast">
+            <End Role="PurchaseMast" EntitySet="PurchaseMasts" />
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleDetail_PurchaseDetail" Association="Self.FK_SaleDetail_PurchaseDetail">
+            <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+            <End Role="SaleDetail" EntitySet="SaleDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SaleDetail_SaleMast" Association="Self.FK_SaleDetail_SaleMast">
+            <End Role="SaleMast" EntitySet="SaleMasts" />
+            <End Role="SaleDetail" EntitySet="SaleDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EMarketModelStoreContainer" CdmEntityContainer="EMarketEntities">
+          <EntitySetMapping Name="AttributeMasts">
+            <EntityTypeMapping TypeName="EMarketModel.AttributeMast">
+              <MappingFragment StoreEntitySet="AttributeMast">
+                <ScalarProperty Name="AttributeID" ColumnName="AttributeID" />
+                <ScalarProperty Name="AttributeName" ColumnName="AttributeName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsGlobal" ColumnName="IsGlobal" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BrandMasts">
+            <EntityTypeMapping TypeName="EMarketModel.BrandMast">
+              <MappingFragment StoreEntitySet="BrandMast">
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsGlobal" ColumnName="IsGlobal" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryAtrributeGroups">
+            <EntityTypeMapping TypeName="EMarketModel.CategoryAtrributeGroup">
+              <MappingFragment StoreEntitySet="CategoryAtrributeGroup">
+                <ScalarProperty Name="CatAttGroupID" ColumnName="CatAttGroupID" />
+                <ScalarProperty Name="CatAttGroupName" ColumnName="CatAttGroupName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="IsGLobal" ColumnName="IsGLobal" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryAttributeDetails">
+            <EntityTypeMapping TypeName="EMarketModel.CategoryAttributeDetail">
+              <MappingFragment StoreEntitySet="CategoryAttributeDetail">
+                <ScalarProperty Name="CatAttributeDetailID" ColumnName="CatAttributeDetailID" />
+                <ScalarProperty Name="CategoryAttributeID" ColumnName="CategoryAttributeID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsGlobal" ColumnName="IsGlobal" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryAttributeMasts">
+            <EntityTypeMapping TypeName="EMarketModel.CategoryAttributeMast">
+              <MappingFragment StoreEntitySet="CategoryAttributeMast">
+                <ScalarProperty Name="CategoryAttributeID" ColumnName="CategoryAttributeID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="AttributeID" ColumnName="AttributeID" />
+                <ScalarProperty Name="CatAttGroupID" ColumnName="CatAttGroupID" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsGlobal" ColumnName="IsGlobal" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryMasts">
+            <EntityTypeMapping TypeName="EMarketModel.CategoryMast">
+              <MappingFragment StoreEntitySet="CategoryMast">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CatRefID" ColumnName="CatRefID" />
+                <ScalarProperty Name="PersonGroupID" ColumnName="PersonGroupID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsGlobal" ColumnName="IsGlobal" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyEmployeeMasts">
+            <EntityTypeMapping TypeName="EMarketModel.CompanyEmployeeMast">
+              <MappingFragment StoreEntitySet="CompanyEmployeeMast">
+                <ScalarProperty Name="CompanyEmployeeID" ColumnName="CompanyEmployeeID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyMasts">
+            <EntityTypeMapping TypeName="EMarketModel.CompanyMast">
+              <MappingFragment StoreEntitySet="CompanyMast">
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Slogan" ColumnName="Slogan" />
+                <ScalarProperty Name="RegisterationDate" ColumnName="RegisterationDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="ACNo" ColumnName="ACNo" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="RefCompanyID" ColumnName="RefCompanyID" />
+                <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+                <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeMasters">
+            <EntityTypeMapping TypeName="EMarketModel.EmployeeMaster">
+              <MappingFragment StoreEntitySet="EmployeeMaster">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EmployeeFName" ColumnName="EmployeeFName" />
+                <ScalarProperty Name="EmployeeMName" ColumnName="EmployeeMName" />
+                <ScalarProperty Name="EmployeeLName" ColumnName="EmployeeLName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Mobile1" ColumnName="Mobile1" />
+                <ScalarProperty Name="Mobile2" ColumnName="Mobile2" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="IsSupplier" ColumnName="IsSupplier" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProdcutMasts">
+            <EntityTypeMapping TypeName="EMarketModel.ProdcutMast">
+              <MappingFragment StoreEntitySet="ProdcutMast">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsGlobal" ColumnName="IsGlobal" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDetails">
+            <EntityTypeMapping TypeName="EMarketModel.ProductDetail">
+              <MappingFragment StoreEntitySet="ProductDetail">
+                <ScalarProperty Name="ProductDetailID" ColumnName="ProductDetailID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CategoryAttributeID" ColumnName="CategoryAttributeID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseDetails">
+            <EntityTypeMapping TypeName="EMarketModel.PurchaseDetail">
+              <MappingFragment StoreEntitySet="PurchaseDetail">
+                <ScalarProperty Name="PurchaseDetailID" ColumnName="PurchaseDetailID" />
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="DiscountPer" ColumnName="DiscountPer" />
+                <ScalarProperty Name="DiscountAmt" ColumnName="DiscountAmt" />
+                <ScalarProperty Name="NetTotal" ColumnName="NetTotal" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="AVat" ColumnName="AVat" />
+                <ScalarProperty Name="FinalTotal" ColumnName="FinalTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PurchaseMasts">
+            <EntityTypeMapping TypeName="EMarketModel.PurchaseMast">
+              <MappingFragment StoreEntitySet="PurchaseMast">
+                <ScalarProperty Name="PurchaseID" ColumnName="PurchaseID" />
+                <ScalarProperty Name="PurchaseNo" ColumnName="PurchaseNo" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+                <ScalarProperty Name="BillDate" ColumnName="BillDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="DiscountPer" ColumnName="DiscountPer" />
+                <ScalarProperty Name="DiscountAmt" ColumnName="DiscountAmt" />
+                <ScalarProperty Name="NetTotal" ColumnName="NetTotal" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="AVat" ColumnName="AVat" />
+                <ScalarProperty Name="FinalTotal" ColumnName="FinalTotal" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsGlobal" ColumnName="IsGlobal" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaleDetails">
+            <EntityTypeMapping TypeName="EMarketModel.SaleDetail">
+              <MappingFragment StoreEntitySet="SaleDetail">
+                <ScalarProperty Name="SaleDetailID" ColumnName="SaleDetailID" />
+                <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="PurchaseDetailID" ColumnName="PurchaseDetailID" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="DiscountPer" ColumnName="DiscountPer" />
+                <ScalarProperty Name="DiscountAmt" ColumnName="DiscountAmt" />
+                <ScalarProperty Name="NetTotal" ColumnName="NetTotal" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="AVat" ColumnName="AVat" />
+                <ScalarProperty Name="FinalTotal" ColumnName="FinalTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaleMasts">
+            <EntityTypeMapping TypeName="EMarketModel.SaleMast">
+              <MappingFragment StoreEntitySet="SaleMast">
+                <ScalarProperty Name="SaleID" ColumnName="SaleID" />
+                <ScalarProperty Name="SaleNo" ColumnName="SaleNo" />
+                <ScalarProperty Name="SaleDate" ColumnName="SaleDate" />
+                <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+                <ScalarProperty Name="BillDate" ColumnName="BillDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="DiscountPer" ColumnName="DiscountPer" />
+                <ScalarProperty Name="DiscountAmt" ColumnName="DiscountAmt" />
+                <ScalarProperty Name="NetTotal" ColumnName="NetTotal" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="AVat" ColumnName="AVat" />
+                <ScalarProperty Name="FinalTotal" ColumnName="FinalTotal" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="IsGlobal" ColumnName="IsGlobal" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
